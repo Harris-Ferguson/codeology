@@ -10,7 +10,7 @@ module.exports = function(grunt) {
         watch: {
 
             sass: {
-                files: ['../src/scss/**/*.scss'],
+                files: ['./src/scss/**/*.scss'],
                 tasks: ['compass:dev'],
                 options: {
                     livereload: true
@@ -18,12 +18,12 @@ module.exports = function(grunt) {
             },
 
             libs: {
-                files: ['../src/js/libs/**/*.js'],
+                files: ['./src/js/libs/**/*.js'],
                 tasks: ['uglify:libs']
             },
 
             js: {
-                files: ['../src/js/*.js'],
+                files: ['./src/js/*.js'],
                 tasks: ['uglify:scripts'],
                 options: {
                     livereload: true
@@ -31,7 +31,7 @@ module.exports = function(grunt) {
             },
 
             images: {
-                files: ['../src/images/**/*.*'],
+                files: ['./src/images/**/*.*'],
                 tasks: ['images'],
                 options: {
                     livereload: true
@@ -39,12 +39,12 @@ module.exports = function(grunt) {
             },
 
             fonts: {
-                files: ['../src/fonts/*.*'],
+                files: ['./src/fonts/*.*'],
                 tasks: ['fonts']
             },
 
             html: {
-                files: ['../templates/*.html'],
+                files: ['./templates/*.html'],
                 options: {
                     livereload: true
                 }
@@ -68,18 +68,18 @@ module.exports = function(grunt) {
             options: {
                 force: true
             },
-            images: ["../dist/images"],
-            fonts: ["../dist/fonts"],
-            release: ["../dist"]
+            images: ["./dist/images"],
+            fonts: ["./dist/fonts"],
+            release: ["./dist"]
         },
 
 
         copy: {
             fonts: {
                 expand: true,
-                cwd: '../src/fonts',
+                cwd: './src/fonts',
                 src: ['**'],
-                dest: '../dist/fonts/'
+                dest: './dist/fonts/'
             }
         },
 
@@ -91,37 +91,37 @@ module.exports = function(grunt) {
                     sourceMap: true
                 },
                 files: {
-                    '../dist/js/scripts.min.js': [
-                        '../src/js/util.js',
-                        '../src/js/config.js',
-                        '../src/js/ascii.js',
-                        '../src/js/objects.js',
-                        '../src/js/api.js',
-                        '../src/js/ui.js',
-                        '../src/js/scene.js',
-                        '../src/js/events.js',
-                        '../src/js/main.js'
+                    './dist/js/scripts.min.js': [
+                        './src/js/util.js',
+                        './src/js/config.js',
+                        './src/js/ascii.js',
+                        './src/js/objects.js',
+                        './src/js/api.js',
+                        './src/js/ui.js',
+                        './src/js/scene.js',
+                        './src/js/events.js',
+                        './src/js/main.js'
                     ]
                 }
             },
 
             libs: {
                 files: {
-                    '../dist/js/libs.min.js': [
-                        "../src/js/libs/three.min.js",
-                        "../src/js/libs/Detector.js",
-                        "../src/js/libs/stats.min.js",
-                        "../src/js/libs/seedrandom.js",
-                        "../src/js/libs/TweenMax.min.js",
-                        "../src/js/libs/jquery-2.1.3.js",
-                        "../src/js/libs/jquery.history.js",
-                        "../src/js/libs/modernizr.min.js",
-                        "../src/js/libs/DeviceOrientationControls.js",
-                        "../src/js/libs/ZeroClipboard.min.js",
-                        "../src/js/libs/fastclick.js",
-                        "../src/js/libs/omggif.js",
-                        "../src/js/libs/iscroll.js",
-                        "../src/js/libs/typed.min.js"
+                    './dist/js/libs.min.js': [
+                        "./src/js/libs/three.min.js",
+                        "./src/js/libs/Detector.js",
+                        "./src/js/libs/stats.min.js",
+                        "./src/js/libs/seedrandom.js",
+                        "./src/js/libs/TweenMax.min.js",
+                        "./src/js/libs/jquery-2.1.3.js",
+                        "./src/js/libs/jquery.history.js",
+                        "./src/js/libs/modernizr.min.js",
+                        "./src/js/libs/DeviceOrientationControls.js",
+                        "./src/js/libs/ZeroClipboard.min.js",
+                        "./src/js/libs/fastclick.js",
+                        "./src/js/libs/omggif.js",
+                        "./src/js/libs/iscroll.js",
+                        "./src/js/libs/typed.min.js"
                     ]
                 }
             }
@@ -137,9 +137,9 @@ module.exports = function(grunt) {
             all: {
                 files: [{
                     expand: true,
-                    cwd: '../src/images/',
+                    cwd: './src/images/',
                     src: ['*.svg'],
-                    dest: '../dist/images/',
+                    dest: './dist/images/',
                     ext: '.svg'
                 }]
             }
@@ -154,9 +154,9 @@ module.exports = function(grunt) {
                 },
                 files: [{
                     expand: true,
-                    cwd: '../src/images/',
+                    cwd: './src/images/',
                     src: ['**/*.{png,jpg,gif}'],
-                    dest: '../dist/images/'
+                    dest: './dist/images/'
                 }]
             }
         },
