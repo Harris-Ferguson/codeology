@@ -164,8 +164,8 @@ module.exports = function(grunt) {
     });
 
 
-    grunt.registerTask('default', ['compass', 'images', 'copy', 'uglify']);
-    grunt.registerTask('release', ['clean:release', 'copy', 'compass', 'images', 'uglify']);
+    grunt.registerTask('default', ['compass', 'copy', 'uglify']);
+    grunt.registerTask('release', ['clean:release', 'copy', 'compass', 'uglify']);
 
     grunt.registerTask('images', ['clean:images', 'svgmin', 'imagemin']);
     grunt.registerTask('fonts',  ['clean:fonts', 'copy:fonts']);

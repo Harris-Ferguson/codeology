@@ -15,7 +15,6 @@ var rolledover = -1;
 var views = [];
 var topGlobal = 0;
 var introPlayed = false;
-var preloader;
 var headerHeight = 0;
 
 var viewsNum = 9;
@@ -51,6 +50,8 @@ function init() {
     updateUI();
     bindUI();
     animate();
+    selected = 1;
+    showCreature();
 
     //preload("featured");
 }

@@ -409,6 +409,7 @@ function Grid(geom) {
 }
 
 function updateBug(db, offset) {
+    console.log(db);
     if (!movement || !db || !db.object || !db.object2)
         return;
     var object = db.object;

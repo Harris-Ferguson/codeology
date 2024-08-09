@@ -11,6 +11,7 @@ var cameraDistance = 650;
 var touching = false;
 
 function onMouseClick(event) {
+    showCreature();
     if (event.target.target != '_blank' && $(event.target).attr('href') != "#") {
         $('.js-share.is-active').eq(0).trigger('click');
         $('.js-toggle-info.is-active').eq(0).trigger('click');

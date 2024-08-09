@@ -21,24 +21,176 @@ function preload(author, project) {
         url = SERVER + "api/repos?liked=1&format=json&limit=50";
         loadingFeatured = true;
     }
+
     $.getJSON(url, function (data) {
-        loading = false;
-
-        if (data.items.message) {
-            // no results
-            hidePreloader();
-            showNoResults(data.items.message);
-            return;
-        }
-
-        if (!!data.items.project) {
-            preload(data.items.user, data.items.repo);
-            return;
-        }
-
-        globalDB = data.items;
+        globalDB = [
+            {
+                "username": "google",
+                "og_image": true,
+                "favourites": "57",
+                "is_favourites": false,
+                "thumbnail": "https:\/\/avatars.githubusercontent.com\/u\/1342004?v=3",
+                "updated_at": "2015-11-05T18:32:42Z",
+                "project": "patchfield",
+                "link": "https:\/\/github.com\/google\/patchfield",
+                "id": 12250505,
+                "description": "Audio infrastructure for Android",
+                "size": 21484,
+                "stargazers_count": 224,
+                "open_issues_count": 3,
+                "forks": 31,
+                "open_issues": 3,
+                "watchers": 224,
+                "languages": {
+                    "Java": 76219,
+                    "C": 54934,
+                    "Pure Data": 964
+                },
+                "share": {
+                    "fb": "https:\/\/www.facebook.com\/dialog\/feed?display=popup&link=%url%&app_id=1180736408603048&redirect_uri=http:\/\/codeology.braintreepayments.com\/fb-closer",
+                    "twitter": "http:\/\/www.twitter.com\/share?text=Codeology+is+an+open+source+project+than+reimagines+how+code+is+seen+and+undestood+%23Codeology&url=%url%",
+                    "pinterest": "http:\/\/pinterest.com\/pin\/create\/button\/?url=%url%&amp;media=http%3A%2F%2Fcodeology.kunstu.com%2Fpublic%2Fupload%2Fog%2F56322e8abbcb0.png&amp;description=Codeology+is+an+open+source+project+than+reimagines+how+code+is+seen+and+undestood",
+                    "gplus": "https:\/\/plus.google.com\/share?url=%url%",
+                    "tumblr": "https:\/\/www.tumblr.com\/widgets\/share\/tool\/preview?canonicalUrl=%url%"
+                }
+            },
+            {
+                    "username": "Microsoft",
+                    "og_image": true,
+                    "favourites": "49",
+                    "is_favourites": false,
+                    "thumbnail": "https:\/\/avatars.githubusercontent.com\/u\/6154722?v=3",
+                    "updated_at": "2015-11-08T20:10:27Z",
+                    "project": "Windows-universal-samples",
+                    "link": "https:\/\/github.com\/Microsoft\/Windows-universal-samples",
+                    "id": 31791381,
+                    "description": "This repo contains the samples that demonstrate the API usage patterns for the Universal Windows Platform (UWP) in the Windows Software Development Kit (SDK) for Windows 10. These code samples are designed to run on both desktop, mobile and future devices that support the UWP.",
+                    "size": 217287,
+                    "stargazers_count": 1774,
+                    "open_issues_count": 55,
+                    "forks": 1299,
+                    "open_issues": 55,
+                    "watchers": 1774,
+                    "languages": {
+                        "JavaScript": 4204267,
+                        "CSS": 486076,
+                        "C++": 202691,
+                        "C#": 10546,
+                        "Visual Basic": 8199,
+                        "HTML": 3945,
+                        "C": 2690
+                    },
+                    "share": {
+                        "fb": "https:\/\/www.facebook.com\/dialog\/feed?display=popup&link=%url%&app_id=1180736408603048&redirect_uri=http:\/\/codeology.braintreepayments.com\/fb-closer",
+                        "twitter": "http:\/\/www.twitter.com\/share?text=Codeology+is+an+open+source+project+than+reimagines+how+code+is+seen+and+undestood+%23Codeology&url=%url%",
+                        "pinterest": "http:\/\/pinterest.com\/pin\/create\/button\/?url=%url%&amp;media=http%3A%2F%2Fcodeology.kunstu.com%2Fpublic%2Fupload%2Fog%2F563247f2d44bf.png&amp;description=Codeology+is+an+open+source+project+than+reimagines+how+code+is+seen+and+undestood",
+                        "gplus": "https:\/\/plus.google.com\/share?url=%url%",
+                        "tumblr": "https:\/\/www.tumblr.com\/widgets\/share\/tool\/preview?canonicalUrl=%url%"
+                    }
+                },
+            {
+                    "username": "google",
+                    "og_image": true,
+                    "favourites": "44",
+                    "is_favourites": false,
+                    "thumbnail": "https:\/\/avatars.githubusercontent.com\/u\/1342004?v=3",
+                    "updated_at": "2015-11-08T10:54:32Z",
+                    "project": "google-authenticator",
+                    "link": "https:\/\/github.com\/google\/google-authenticator",
+                    "id": 24953080,
+                    "description": "Open source version of Google Authenticator (except the Android app)",
+                    "size": 3035,
+                    "stargazers_count": 839,
+                    "open_issues_count": 181,
+                    "forks": 200,
+                    "open_issues": 181,
+                    "watchers": 839,
+                    "languages": {
+                        "Java": 192759,
+                        "Objective-C": 137763,
+                        "C": 124240,
+                        "HTML": 121797,
+                        "Python": 300,
+                        "Shell": 29
+                    },
+                    "share": {
+                        "fb": "https:\/\/www.facebook.com\/dialog\/feed?display=popup&link=%url%&app_id=1180736408603048&redirect_uri=http:\/\/codeology.braintreepayments.com\/fb-closer",
+                        "twitter": "http:\/\/www.twitter.com\/share?text=Codeology+is+an+open+source+project+than+reimagines+how+code+is+seen+and+undestood+%23Codeology&url=%url%",
+                        "pinterest": "http:\/\/pinterest.com\/pin\/create\/button\/?url=%url%&amp;media=http%3A%2F%2Fcodeology.kunstu.com%2Fpublic%2Fupload%2Fog%2F563247fba5647.png&amp;description=Codeology+is+an+open+source+project+than+reimagines+how+code+is+seen+and+undestood",
+                        "gplus": "https:\/\/plus.google.com\/share?url=%url%",
+                        "tumblr": "https:\/\/www.tumblr.com\/widgets\/share\/tool\/preview?canonicalUrl=%url%"
+                    }
+                },
+            {
+                    "username": "google",
+                    "og_image": true,
+                    "favourites": "29",
+                    "is_favourites": false,
+                    "thumbnail": "https:\/\/avatars.githubusercontent.com\/u\/1342004?v=3",
+                    "updated_at": "2015-11-08T14:28:12Z",
+                    "project": "iosched",
+                    "link": "https:\/\/github.com\/google\/iosched",
+                    "id": 18347476,
+                    "description": "The Google I\/O 2015 Android App",
+                    "size": 24886,
+                    "stargazers_count": 9047,
+                    "open_issues_count": 31,
+                    "forks": 3464,
+                    "open_issues": 31,
+                    "watchers": 9047,
+                    "languages": {
+                        "Java": 1751599,
+                        "HTML": 44216,
+                        "JavaScript": 19470,
+                        "CSS": 6214,
+                        "Shell": 5083
+                    },
+                    "share": {
+                        "fb": "https:\/\/www.facebook.com\/dialog\/feed?display=popup&link=%url%&app_id=1180736408603048&redirect_uri=http:\/\/codeology.braintreepayments.com\/fb-closer",
+                        "twitter": "http:\/\/www.twitter.com\/share?text=Codeology+is+an+open+source+project+than+reimagines+how+code+is+seen+and+undestood+%23Codeology&url=%url%",
+                        "pinterest": "http:\/\/pinterest.com\/pin\/create\/button\/?url=%url%&amp;media=http%3A%2F%2Fcodeology.kunstu.com%2Fpublic%2Fupload%2Fog%2F56323e989472e.png&amp;description=Codeology+is+an+open+source+project+than+reimagines+how+code+is+seen+and+undestood",
+                        "gplus": "https:\/\/plus.google.com\/share?url=%url%",
+                        "tumblr": "https:\/\/www.tumblr.com\/widgets\/share\/tool\/preview?canonicalUrl=%url%"
+                    }
+                },
+            {
+                    "username": "Microsoft",
+                    "og_image": true,
+                    "favourites": "29",
+                    "is_favourites": false,
+                    "thumbnail": "https:\/\/avatars.githubusercontent.com\/u\/6154722?v=3",
+                    "updated_at": "2015-11-06T21:13:04Z",
+                    "project": "nodejstools",
+                    "link": "https:\/\/github.com\/Microsoft\/nodejstools",
+                    "id": 33017149,
+                    "description": "Node.js Tools for Visual Studio",
+                    "size": 105286,
+                    "stargazers_count": 824,
+                    "open_issues_count": 237,
+                    "forks": 126,
+                    "open_issues": 237,
+                    "watchers": 824,
+                    "languages": {
+                        "C#": 9613230,
+                        "JavaScript": 666028,
+                        "PowerShell": 85168,
+                        "HTML": 29428,
+                        "Batchfile": 27850,
+                        "TypeScript": 11615,
+                        "Python": 4937,
+                        "CSS": 4635,
+                        "ASP": 112
+                    },
+                    "share": {
+                        "fb": "https:\/\/www.facebook.com\/dialog\/feed?display=popup&link=%url%&app_id=1180736408603048&redirect_uri=http:\/\/codeology.braintreepayments.com\/fb-closer",
+                        "twitter": "http:\/\/www.twitter.com\/share?text=Codeology+is+an+open+source+project+than+reimagines+how+code+is+seen+and+undestood+%23Codeology&url=%url%",
+                        "pinterest": "http:\/\/pinterest.com\/pin\/create\/button\/?url=%url%&amp;media=http%3A%2F%2Fcodeology.kunstu.com%2Fpublic%2Fupload%2Fog%2F563248076489b.png&amp;description=Codeology+is+an+open+source+project+than+reimagines+how+code+is+seen+and+undestood",
+                        "gplus": "https:\/\/plus.google.com\/share?url=%url%",
+                        "tumblr": "https:\/\/www.tumblr.com\/widgets\/share\/tool\/preview?canonicalUrl=%url%"
+                    }
+                }
+        ];
         featured = loadingFeatured;
-
 
         for (var i = 0; i < globalDB.length; i++) {
             if (project && globalDB[i] && globalDB[i].link) {
@@ -86,7 +238,6 @@ function preload(author, project) {
             afterIntro();
             updateUI();
         }
-
     });
 }
 
